@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .cs{
+            background-color: gold;
+            text-align: center;
+            border: 2px solid red;
+            display: grid;
+            place-items: center;
+            font-weight: bold;
+            font-size: 24px;
+            
+        }
+        .container{
+            display: grid;
+            height: 100vh;
+           /* grid-template-rows: 1fr 5fr 5fr 3fr; */
+            grid-template-areas:'a1 a1 a1 a1'
+                                'b1 c1 c1 c1'
+                                'b1 c1 c1 c1'
+                                'b1 c1 c1 c1'
+                                'b1 d1 e1 f1'
+                                'b1 d1 e1 f1'
+                                'b1 d1 e1 f1'
+                                'b1 g1 g1 g1'
+                                'b1 g1 g1 g1';    
+            grid-gap: 15px;
+
+        }
+        #a{
+            grid-area: a1;
+        
+        }
+        #b{
+            grid-area: b1;
+        
+        }
+        #c{
+            grid-area: c1;
+        
+        }
+        #d{
+            grid-area: d1;
+        
+        }
+        #e{
+            grid-area: e1;
+        
+        }
+        #f{
+            grid-area: f1;
+        
+        }
+        #g{
+            grid-area: g1;
+        
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cs" id="a">Navbar</div>
+        <div class="cs" id="b">Sidebar</div>
+        <div class="cs" id="c">Main</div>
+        <div class="cs" id="d">Content1</div>
+        <div class="cs" id="e">Content2</div>
+        <div class="cs" id="f">Content3</div>
+        <div class="cs" id="g">Footer</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+<style>
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+    .header{
+       height:100px;
+       
+       background-color: green;
+       margin:20px;
+       padding:20px;
+    }
+
+    .container
+    {
+        height:auto;
+        border: 2px solid lightgreen;
+        margin:30px;
+       padding:20px;
+    }
+
+    .ulist
+    {
+        list-style: none;
+        margin:20px;
+       padding:10px;
+    }
+    .list
+    {
+       border: 2px solid red;
+    margin:10px;
+       padding:5px;
+       font-size: x-large;
+     
+    }
+    .btn{
+     
+    margin-left:95%;
+    padding:5px;
+    font-size: x-large;
+    color:white;
+    background-color: red;
+    text-align: center;
+    display: inline;
+
+    }
+</style>
+</head>
+
+
+<body>
+    <div class="header">
+        <h1>ITEM LISTER</h1>
+        
+    </div>
+    
+    <div class="container">
+
+        <h1>Add Items</h1>
+        <input type="text" id="inp" >
+        <input type="button" value="Submit" id="s">
+        <input type="button" value="Reverse" id="r">
+
+        <ul class="ulist"id="ulists">
+            <li class="list">name <button class="btn">X</button></li>
+    
+        </ul>
+
+    </div>
+</body>
+
+<script>
+    let v = document.getElementById("inp")
+    let sb = document.getElementById("s")
+    let rb = document.getElementById("r")
+    let cb = document.getElementsByClassName("btn")
+    itemList = document.getElementById("ulists")
+
+    sb.addEventListener('click',add)
+    rb.addEventListener('click',rev)
+
+    for( a of cb)
+    a.addEventListener('click',rem)
+
+function add(){
+    console.log(v.value)
+status=1
+if (v.value=="")
+{
+    alert("Value is blank")
+    status=0
+}
+ if (! isNaN(v.value)) 
+  {
+    alert("must not be a number")
+    status=0
+  }
+
+  if(status ==1)
+  {
+    let n = document.createElement('li');
+    n.className = 'list';
+
+    let btn = document.createElement('button');
+    btn.className = 'btn';
+ 
+    btn.appendChild(document.createTextNode('X'));
+
+    n.appendChild(document.createTextNode(v.value));
+    n.appendChild(btn);
+ 
+    itemList.appendChild(n);
+
+  }
+}
+
+function rev(){
+ 
+}
+
+function rem(e){
+    if(confirm('Are You Sure?')){
+      let li = e.target.parentElement;
+      itemList.removeChild(li);
+    }
+    console.log("removed")
+}
+</script>
+</html>
